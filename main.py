@@ -7,22 +7,31 @@
 from math import pi
 
 
+# Площадь какой фигуры должен возвращать класс Shape?
 class Shape:
-    def area(self, b, a):
-        return a * b
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
 
 
 class Rectangle(Shape):
-    def area(self, a, b):
-        return a * b
+    def area(self):
+        return self.width * self.height
 
 
 class Circle(Shape):
-    def area(self, r):
-        return pi * r ** 2
+    def __init__(self, radius):
+        super().__init__(radius, radius)
+        self.radius = radius
+
+    def area(self):
+        return pi * self.radius ** 2
 
 
-cl = Rectangle()
-print(cl.area(2, 3))
-cl = Circle()
-print(cl.area(5))
+cl = Rectangle(2, 3)
+print(cl.area())
+cl = Circle(5)
+print(cl.area())
