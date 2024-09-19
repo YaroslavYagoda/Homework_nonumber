@@ -12,10 +12,10 @@ ZeroDivisionError, если второе число равно нулю.
 try:
     num1 = float(input('Введите первое число:\n'))
     num2 = float(input('Введите второе число:\n'))
-    print(f'Результат деления: {num1/num2:.2f}')
+    print(f'Результат деления: {num1 / num2:.2f}')
 except ValueError:
     print('\nВведено не число!\n')
 except ZeroDivisionError:
     print('\nНа ноль делить нельзя\n')
 finally:
-    print('')
+    print('\nРабота программы завершена')
