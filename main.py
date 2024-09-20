@@ -7,37 +7,40 @@
 from math import pi
 
 
-# Площадь какой фигуры должен возвращать класс Shape?
 class Shape:
-    def __init__(self, param1, param2=pi):
-        self.param1 = param1
-        self.param2 = param2
-
-    coefficient1 = 0
-    coefficient2 = 0
-
     def get_area(self):
-        return self.coefficient1 * self.param1 ** self.coefficient2 * self.param2
+        pass
 
 
 class Rectangle(Shape):
-    coefficient1 = 1
-    coefficient2 = 1
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def get_area(self):
+        return self.width * self.height
 
 
 class Circle(Shape):
-    coefficient1 = 1
-    coefficient2 = 2
+    def __init__(self, radius):
+        self.radius = radius
+
+    def get_area(self):
+        return pi * self.radius ** 2
 
 
 class Triangle(Shape):
-    coefficient1 = 0.5
-    coefficient2 = 1
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+
+    def get_area(self):
+        return self.base * self.height * 0.5
 
 
 cl = Rectangle(2, 3)
 print(cl.get_area())
-cl = Circle(1)
+cl = Circle(5)
 print(cl.get_area())
 cl = Triangle(5, 6)
 print(cl.get_area())
