@@ -27,7 +27,7 @@ class Rectangle(Shape):
 
 class Circle(Shape):
     coefficient1 = 1
-    coefficient2 = 1
+    coefficient2 = 2
 
 
 class Triangle(Shape):
