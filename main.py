@@ -20,6 +20,7 @@ with open('data.txt', 'a', encoding='utf-8') as file:
 with open('data.txt', 'r', encoding='utf-8') as file:
     for line in file:
         print(line, end='')  # убираю перенос строки так как строка файла его уже имеет
+
 with open('data.txt', 'rb') as file:
     content = file.read()
 
