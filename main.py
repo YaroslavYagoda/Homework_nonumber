@@ -1,44 +1,27 @@
 """
-Создайте класс BankAccount с приватным атрибутом balance. Реализуйте методы для депозита, снятия и проверки баланса.
-Используйте методы доступа для работы с приватным атрибутом.
-Подсказка:
-Для выполнения этой задачи используйте принципы инкапсуляции.
-deposit money
-withdraw money
-check the balance
+Создайте текстовый файл data.txt и запишите в него несколько строк текста.
+Напишите программу, которая открывает этот файл и выводит его содержимое на экран.
+Дополните файл новыми строками с помощью режима добавления 'a'.
+Реализуйте чтение содержимого файла построчно и выведите его на экран.
+Скопируйте файл в бинарном режиме, создав его копию с другим именем.
 """
+with open('data.txt', 'w', encoding='utf-8') as file:
+    for _ in range(4):
+        file.write('Просто текст\n')
 
+with open('data.txt', 'r', encoding='utf-8') as file:
+    content = file.read()
+    print(content)
 
-class BankAccount:
-    def __init__(self):
-        self.__balance = 0
+with open('data.txt', 'a', encoding='utf-8') as file:
+    for _ in range(4):
+        file.write('More текст\n')
 
-    def deposit_money(self, money: float):
-        if money <= 0:
-            print('Недопустимая операция')
-        else:
-            self.__balance += money
+with open('data.txt', 'r', encoding='utf-8') as file:
+    for line in file:
+        print(line, end='')  # убираю перенос строки так как строка файла его уже имеет
+with open('data.txt', 'rb') as file:
+    content = file.read()
 
-    def withdraw_money(self, money: float):
-        if money > self.__balance:
-            print('Недостаточно средств!')
-        elif money <= 0:
-            print('Недопустимая операция')
-        else:
-            self.__balance -= money
-
-    def print_balance(self):
-        return self.__balance
-
-    balance = property(print_balance, deposit_money, withdraw_money, 'Разрешения для счета')
-
-
-cash_account = BankAccount()
-cash_account.print_balance()
-cash_account.deposit_money(100)
-cash_account.withdraw_money(10.1)
-print(cash_account.print_balance())
-cash_account.balance = 20
-print(cash_account.balance)
-cash_account.balance = -10
-print(cash_account.balance)
+with open('data2.txt', 'wb') as file:
+    file.write(content)
